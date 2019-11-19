@@ -1,0 +1,83 @@
+---
+title: "Working_Final_Project"
+author: "Chloe Shawah"
+date: "11/18/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+library(readxl)
+library(readr)
+library(janitor)
+library(tidyverse)
+
+```
+
+```{r Data Readin}
+
+hdi <- read_xlsx("raw_data/UNDP_HDI.xlsx") %>% 
+  slice(190:378) %>% 
+  clean_names() %>% 
+  select(country_name, x2017)
+colnames(hdi) <- c("country", "hdi_val")
+
+child_mortality <- read_xls("raw_data/WB_Child_Mortality.xls") %>% 
+  slice(4:267) %>% 
+  clean_names() %>% 
+  select(data_source, x63)
+colnames(child_mortality) <- c("country", "cm_val")
+  
+gdp <- read_xls("raw_data/WB_GDP.xls") %>% 
+  slice(4:267) %>% 
+  clean_names() %>% 
+  select(data_source, x63)
+colnames(gdp) <- c("country", "gdp_val")
+
+colonial_history <- read_csv("raw_data/ICOW_Colonial_History.csv") %>% 
+  clean_names() %>% 
+  select(state, name, col_ruler, ind_from, ind_date)
+  
+colonial_history$ind_date <- substr(colonial_history$ind_date,1,nchar(colonial_history$ind_date)-2) %>% as.numeric()
+
+colonial_history <- colonial_history %>% mutate(named_ind_from = ifelse(ind_from == 200, "England", "Other")) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 230, "Spain", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 210, "Netherlands", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == -9, "No Colonizer", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 220, "France", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 2, "United States", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 640, "Turkey", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 365, "Russia", named_ind_from))
+
+colonial_history <- inner_join(colonial_history, gdp, by = c("name" = "country"))
+colonial_history <- inner_join(colonial_history, child_mortality, by = c("name" = "country"))
+colonial_history <- inner_join(colonial_history, hdi, by = c("name" = "country"))
+
+```
+
+```{r}
+
+colonial_no_na <- colonial_history %>% na.omit()
+
+gdp_plot <- ggplot(colonial_no_na) +
+  geom_point(aes(x = ind_date, y = round(as.numeric(gdp_val), 4), color = named_ind_from)) +
+  scale_y_log10()
+
+hdi_plot <- ggplot(colonial_history) +
+  geom_point(aes(x = ind_date, y = round(hdi_val, 6), color = named_ind_from))
+
+cm_plot <- ggplot(colonial_no_na) +
+  geom_point(aes(x = ind_date, y = round(as.numeric(cm_val), 2), color = named_ind_from))
+
+
+gdp_plot
+hdi_plot
+cm_plot
+
+
+```
+
+
