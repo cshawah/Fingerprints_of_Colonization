@@ -56,21 +56,29 @@ colonial_history <- inner_join(colonial_history, gdp, by = c("name" = "country")
 colonial_history <- inner_join(colonial_history, child_mortality, by = c("name" = "country"))
 colonial_history <- inner_join(colonial_history, hdi, by = c("name" = "country"))
 
+plot_data <- colonial_history %>% 
+  na.omit() %>% 
+  mutate(gdp_val = round(as.numeric(gdp_val), 4)) %>% 
+  mutate(hdi_val = round(hdi_val, 6)) %>% 
+  mutate(cm_val = round(as.numeric(cm_val), 2))
+
+write.csv(plot_data, "plot_data.csv")
+file.copy("plot_data.csv", "Final_Project_Draft/plot_data.csv")
+
+
 ```
 
 ```{r}
 
-colonial_no_na <- colonial_history %>% na.omit()
-
-gdp_plot <- ggplot(colonial_no_na) +
-  geom_point(aes(x = ind_date, y = round(as.numeric(gdp_val), 4), color = named_ind_from)) +
+gdp_plot <- ggplot(plot_data) +
+  geom_point(aes(x = ind_date, y = gdp_val, color = named_ind_from)) +
   scale_y_log10()
 
-hdi_plot <- ggplot(colonial_history) +
-  geom_point(aes(x = ind_date, y = round(hdi_val, 6), color = named_ind_from))
+hdi_plot <- ggplot(plot_data) +
+  geom_point(aes(x = ind_date, y = hdi_val, color = named_ind_from))
 
-cm_plot <- ggplot(colonial_no_na) +
-  geom_point(aes(x = ind_date, y = round(as.numeric(cm_val), 2), color = named_ind_from))
+cm_plot <- ggplot(plot_data) +
+  geom_point(aes(x = ind_date, y = cm_val, color = named_ind_from))
 
 
 gdp_plot
