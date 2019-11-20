@@ -50,7 +50,9 @@ colonial_history <- colonial_history %>% mutate(named_ind_from = ifelse(ind_from
   mutate(named_ind_from = ifelse(ind_from == 220, "France", named_ind_from)) %>% 
   mutate(named_ind_from = ifelse(ind_from == 2, "United States", named_ind_from)) %>% 
   mutate(named_ind_from = ifelse(ind_from == 640, "Turkey", named_ind_from)) %>% 
-  mutate(named_ind_from = ifelse(ind_from == 365, "Russia", named_ind_from))
+  mutate(named_ind_from = ifelse(ind_from == 365, "Russia", named_ind_from)) %>% 
+  mutate(named_ind_from = ifelse(ind_from == 235, "Portugal", named_ind_from))
+  
 
 colonial_history <- inner_join(colonial_history, gdp, by = c("name" = "country"))
 colonial_history <- inner_join(colonial_history, child_mortality, by = c("name" = "country"))
@@ -62,13 +64,12 @@ plot_data <- colonial_history %>%
   mutate(hdi_val = round(hdi_val, 6)) %>% 
   mutate(cm_val = round(as.numeric(cm_val), 2))
 
-write.csv(plot_data, "plot_data.csv")
-file.copy("plot_data.csv", "Final_Project_Draft/plot_data.csv")
+write.csv(plot_data, "Final_Project_Draft/plot_data.csv")
 
 
 ```
 
-```{r}
+```{r include = FALSE}
 
 gdp_plot <- ggplot(plot_data) +
   geom_point(aes(x = ind_date, y = gdp_val, color = named_ind_from)) +

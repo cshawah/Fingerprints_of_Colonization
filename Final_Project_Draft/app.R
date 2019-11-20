@@ -7,8 +7,8 @@ library(tidyverse)
 
 # Define UI for application, use Navbar
 
-country_list <-  c("England", "France", "Spain", "Netherlands", "Russia", "Turkey", 
-                   "United States", "Other", "No Colonizer")
+country_list <-  c("England", "France", "Spain", "Netherlands", "Portugal", "Russia", 
+                   "Turkey", "United States", "Other", "No Colonizer")
 
 ui <- fluidPage(navbarPage("Fingerprints of Colonization", 
                  tabPanel("GDP", mainPanel(plotOutput("plot_gdp")), sidebarPanel(checkboxGroupInput("gdp_select",
