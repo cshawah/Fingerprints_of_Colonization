@@ -10,17 +10,20 @@ knitr::opts_chunk$set(echo = FALSE,
                       message = FALSE,
                       warning = FALSE)
 
-# Load packages
+# Load  necessary packages
 
 library(readxl)
 library(readr)
 library(janitor)
 library(tidyverse)
 library(sf)
+library(reshape2)
 
 ```
 
-```{r Data Readin}
+```{r Read in and Clean Scatter Plot Data}
+
+# Clean and Prep Scatter Plot Data -----------------------------------------------------------------------------------
 
 # Read in HDI index data, slice out miscellaneous rows, select 2017 column, rename columns
 
@@ -97,9 +100,142 @@ write.csv(plot_data, "Final_Project_Draft/plot_data.csv")
 
 ```
 
-```{r include = FALSE}
+```{r GDP Line Plot Data}
 
-# Drafts of plots
+# Clean GDP Line Plot Data ------------------------------------------------------------------------------------------
+
+# Read in from raw-data directory, slice rows as appropriate
+
+gdp_2 <- read_xls("raw_data/WB_GDP.xls") %>% 
+  slice(3:267)
+colnames(gdp_2) = gdp_2[1, ] # the first row will be the header
+gdp_2 = gdp_2[-1, -2:-34]
+
+# Gather data so each year has own observation
+
+gdp_2 <- gdp_2 %>% 
+  gather(key = year, value = gdp, "1990":"2018") 
+
+# Round, change to numeric, and clean names
+
+gdp_2 <- gdp_2 %>% 
+  mutate(gdp = round(as.numeric(gdp), 4)) %>% 
+  mutate(year = as.numeric(year)) %>% 
+  clean_names()
+
+# Join with plot_data so we can see the last occupier
+
+gdp_line_data <- inner_join(plot_data, gdp_2, by = c("name" = "country_name"))
+
+# Write csv file into app directory
+
+write.csv(gdp_line_data, "Final_Project_Draft/gdp_line_data.csv")
+
+```
+
+```{r Child Mortality Line Plot Data}
+
+# Clean Child Mortality Line Plot Data --------------------------------------------------------------------------------
+
+# Read in from raw-data directory, slice rows as appropriate
+
+cm_2 <- read_xls("raw_data/WB_Child_Mortality.xls") %>% 
+  slice(3:267) 
+colnames(cm_2) = cm_2[1, ]
+cm_2 = cm_2[-1, -2:-4]
+
+# Gather data so each year has own observation
+
+cm_2 <- cm_2 %>% 
+  gather(key = year, value = cm_rate, "1960":"2018")
+
+# Round, change to numeric, and clean names
+
+cm_2 <- cm_2 %>% 
+  mutate(cm_rate = round(as.numeric(cm_rate), 2)) %>% 
+  mutate(year = as.numeric(year)) %>% 
+  clean_names()
+
+# Join with plot_data so we can see the last occupier
+
+cm_line_data <- inner_join(plot_data, cm_2, by = c("name" = "country_name"))
+
+# Write csv file into app directory
+
+write.csv(cm_line_data, "Final_Project_Draft/cm_line_data.csv")
+
+```
+
+```{r Literacy Line Plot Data}
+
+# Clean Literacy Line Plot Data ---------------------------------------------------------------------------------------
+
+# Read in from raw-data directory, slice rows as appropriate
+
+lit_2 <- read_xls("raw_data/WB_literacy.xls") %>% 
+  slice(4:268) 
+colnames(lit_2) = lit_2[1, ]
+lit_2 = lit_2[-1,-2:-14]
+
+# Gather data so each year has own observation
+
+lit_2 <- lit_2 %>% 
+  gather(key = year, value = lit_rate, "1970":"2018") 
+
+# Round, change to numeric, and clean names
+
+lit_2 <- lit_2 %>% 
+  mutate(lit_rate = round(as.numeric(lit_rate), 2)) %>% 
+  mutate(year = as.numeric(year)) %>% 
+  clean_names()
+
+# Join with plot_data so we can see the last occupier
+
+lit_line_data <- inner_join(plot_data, lit_2, by = c("name" = "country_name"))
+
+# Write csv file into app directory
+
+write.csv(lit_line_data, "Final_Project_Draft/lit_line_data.csv")
+
+```
+
+```{r HDI Line Plot Data}
+
+# Clean HDI Line Plot Data ------------------------------------------------------------------------------------------
+
+# Read in from raw-data directory, slice rows as appropriate
+
+hdi_2 <- read_xlsx("raw_data/UNDP_HDI.xlsx") %>% 
+  slice(190:378) 
+hdi_2 = hdi_2[, -1:-4]
+hdi_2 = hdi_2[, -30]
+
+# Gather data so each year has own observation
+
+hdi_2 <- hdi_2 %>% 
+  gather(key = year, value = hdi, "1990":"2017") 
+
+# Round, change to numeric, and clean names
+
+hdi_2 <- hdi_2 %>% 
+  mutate(hdi = round(as.numeric(hdi), 4)) %>% 
+  mutate(year = as.numeric(year)) %>% 
+  clean_names()
+
+# Join with plot_data so we can see the last occupier
+
+hdi_line_data <- inner_join(plot_data, hdi_2, by = c("name" = "country_name"))
+
+# Write csv file into app directory
+
+write.csv(hdi_line_data, "Final_Project_Draft/hdi_line_data.csv")
+
+```
+
+
+```{r Plot Drafts, include = FALSE}
+
+# Drafts of plots ---------------------------------------------------------------------------------------------------
 
 # For GDP plot, need to scale y with log10
 
@@ -116,13 +252,22 @@ cm_plot <- ggplot(plot_data) +
 lit_plot <- ggplot(plot_data) +
   geom_point(aes(x = ind_date, y = lit_val, color = named_ind_from))
 
+# Test line plot
+
+ggplot((gdp_line_data %>% 
+          filter(named_ind_from == "Spain"))) +
+  aes(x = year, y = gdp, color = name) +
+  geom_line()
+
 ```
 
 Changes to make for final version:
 
  - Fix the colors of the points for the occupying countries. It is confusing that the colors switch when the check boxes change.
  - I lost some points when merging by country name. There is no ISO3 code in the colonial history dataset, but perhaps I could manually add one and merge using that to eliminate lost points.
- - In each tab, add another graph that plots the trends for the indicators over time instead of the values for one year against independence year. All ths data is already in the data sets, but I cleaned it out when I selected for year. This will add significantly more content to the project.
+ - Include tables of data?
+ - Make some regression models on scatter plots?
+ - Home page with lots of disclaimers explaining issues with data: take last occupying country lightly.
 
 
 
