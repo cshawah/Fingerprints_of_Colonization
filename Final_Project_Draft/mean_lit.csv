@@ -1,0 +1,491 @@
+"","year","named_ind_from","mean_lit"
+"1",1970,"England",98.53
+"2",1970,"France",NA
+"3",1970,"Netherlands",NA
+"4",1970,"No Colonizer",NA
+"5",1970,"Other",NA
+"6",1970,"Portugal",NA
+"7",1970,"Russia",NA
+"8",1970,"Spain",NA
+"9",1970,"Turkey",NA
+"10",1970,"United States",NA
+"11",1971,"England",NA
+"12",1971,"France",NA
+"13",1971,"Netherlands",NA
+"14",1971,"No Colonizer",NA
+"15",1971,"Other",NA
+"16",1971,"Portugal",NA
+"17",1971,"Russia",NA
+"18",1971,"Spain",NA
+"19",1971,"Turkey",NA
+"20",1971,"United States",NA
+"21",1972,"England",NA
+"22",1972,"France",NA
+"23",1972,"Netherlands",NA
+"24",1972,"No Colonizer",NA
+"25",1972,"Other",5.4
+"26",1972,"Portugal",NA
+"27",1972,"Russia",NA
+"28",1972,"Spain",NA
+"29",1972,"Turkey",NA
+"30",1972,"United States",NA
+"31",1973,"England",NA
+"32",1973,"France",NA
+"33",1973,"Netherlands",NA
+"34",1973,"No Colonizer",NA
+"35",1973,"Other",NA
+"36",1973,"Portugal",NA
+"37",1973,"Russia",NA
+"38",1973,"Spain",NA
+"39",1973,"Turkey",NA
+"40",1973,"United States",NA
+"41",1974,"England",NA
+"42",1974,"France",NA
+"43",1974,"Netherlands",NA
+"44",1974,"No Colonizer",NA
+"45",1974,"Other",NA
+"46",1974,"Portugal",NA
+"47",1974,"Russia",NA
+"48",1974,"Spain",NA
+"49",1974,"Turkey",NA
+"50",1974,"United States",NA
+"51",1975,"England",56.535
+"52",1975,"France",18.24
+"53",1975,"Netherlands",NA
+"54",1975,"No Colonizer",61.63
+"55",1975,"Other",93.86
+"56",1975,"Portugal",NA
+"57",1975,"Russia",NA
+"58",1975,"Spain",NA
+"59",1975,"Turkey",NA
+"60",1975,"United States",NA
+"61",1976,"England",99.59
+"62",1976,"France",25.325
+"63",1976,"Netherlands",NA
+"64",1976,"No Colonizer",NA
+"65",1976,"Other",NA
+"66",1976,"Portugal",NA
+"67",1976,"Russia",NA
+"68",1976,"Spain",63.21
+"69",1976,"Turkey",NA
+"70",1976,"United States",NA
+"71",1977,"England",NA
+"72",1977,"France",NA
+"73",1977,"Netherlands",NA
+"74",1977,"No Colonizer",NA
+"75",1977,"Other",NA
+"76",1977,"Portugal",NA
+"77",1977,"Russia",NA
+"78",1977,"Spain",NA
+"79",1977,"Turkey",NA
+"80",1977,"United States",NA
+"81",1978,"England",NA
+"82",1978,"France",NA
+"83",1978,"Netherlands",NA
+"84",1978,"No Colonizer",NA
+"85",1978,"Other",68.49
+"86",1978,"Portugal",NA
+"87",1978,"Russia",NA
+"88",1978,"Spain",NA
+"89",1978,"Turkey",NA
+"90",1978,"United States",NA
+"91",1979,"England",42.48
+"92",1979,"France",52.87
+"93",1979,"Netherlands",NA
+"94",1979,"No Colonizer",NA
+"95",1979,"Other",22.51
+"96",1979,"Portugal",19.96
+"97",1979,"Russia",NA
+"98",1979,"Spain",NA
+"99",1979,"Turkey",NA
+"100",1979,"United States",NA
+"101",1980,"England",77.0525
+"102",1980,"France",47.92
+"103",1980,"Netherlands",67.31
+"104",1980,"No Colonizer",76.835
+"105",1980,"Other",89.9466666666667
+"106",1980,"Portugal",50.795
+"107",1980,"Russia",NA
+"108",1980,"Spain",88.45
+"109",1980,"Turkey",NA
+"110",1980,"United States",87.62
+"111",1981,"England",45.4133333333333
+"112",1981,"France",NA
+"113",1981,"Netherlands",NA
+"114",1981,"No Colonizer",64.2733333333333
+"115",1981,"Other",63.9766666666667
+"116",1981,"Portugal",57.32
+"117",1981,"Russia",NA
+"118",1981,"Spain",81.92
+"119",1981,"Turkey",90.51
+"120",1981,"United States",97.85
+"121",1982,"England",NA
+"122",1982,"France",34.73
+"123",1982,"Netherlands",NA
+"124",1982,"No Colonizer",30.26
+"125",1982,"Other",83.55
+"126",1982,"Portugal",NA
+"127",1982,"Russia",NA
+"128",1982,"Spain",84.795
+"129",1982,"Turkey",NA
+"130",1982,"United States",NA
+"131",1983,"England",91.75
+"132",1983,"France",NA
+"133",1983,"Netherlands",NA
+"134",1983,"No Colonizer",NA
+"135",1983,"Other",NA
+"136",1983,"Portugal",NA
+"137",1983,"Russia",NA
+"138",1983,"Spain",NA
+"139",1983,"Turkey",NA
+"140",1983,"United States",NA
+"141",1984,"England",86.12
+"142",1984,"France",58.2
+"143",1984,"Netherlands",NA
+"144",1984,"No Colonizer",32.11
+"145",1984,"Other",92.63
+"146",1984,"Portugal",NA
+"147",1984,"Russia",NA
+"148",1984,"Spain",NA
+"149",1984,"Turkey",48.19
+"150",1984,"United States",NA
+"151",1985,"England",77.5533333333333
+"152",1985,"France",NA
+"153",1985,"Netherlands",NA
+"154",1985,"No Colonizer",75.97
+"155",1985,"Other",95.38
+"156",1985,"Portugal",NA
+"157",1985,"Russia",NA
+"158",1985,"Spain",NA
+"159",1985,"Turkey",NA
+"160",1985,"United States",NA
+"161",1986,"England",75.64
+"162",1986,"France",NA
+"163",1986,"Netherlands",NA
+"164",1986,"No Colonizer",NA
+"165",1986,"Other",NA
+"166",1986,"Portugal",NA
+"167",1986,"Russia",NA
+"168",1986,"Spain",NA
+"169",1986,"Turkey",NA
+"170",1986,"United States",NA
+"171",1987,"England",66.385
+"172",1987,"France",49.63
+"173",1987,"Netherlands",NA
+"174",1987,"No Colonizer",NA
+"175",1987,"Other",NA
+"176",1987,"Portugal",NA
+"177",1987,"Russia",NA
+"178",1987,"Spain",NA
+"179",1987,"Turkey",NA
+"180",1987,"United States",NA
+"181",1988,"England",NA
+"182",1988,"France",33.62
+"183",1988,"Netherlands",NA
+"184",1988,"No Colonizer",NA
+"185",1988,"Other",62.805
+"186",1988,"Portugal",NA
+"187",1988,"Russia",NA
+"188",1988,"Spain",NA
+"189",1988,"Turkey",NA
+"190",1988,"United States",NA
+"191",1989,"England",NA
+"192",1989,"France",NA
+"193",1989,"Netherlands",NA
+"194",1989,"No Colonizer",NA
+"195",1989,"Other",NA
+"196",1989,"Portugal",NA
+"197",1989,"Russia",98.23125
+"198",1989,"Spain",NA
+"199",1989,"Turkey",NA
+"200",1989,"United States",NA
+"201",1990,"England",80.6033333333333
+"202",1990,"France",NA
+"203",1990,"Netherlands",81.52
+"204",1990,"No Colonizer",79.23
+"205",1990,"Other",75.89
+"206",1990,"Portugal",NA
+"207",1990,"Russia",NA
+"208",1990,"Spain",87.56
+"209",1990,"Turkey",NA
+"210",1990,"United States",93.57
+"211",1991,"England",66.5128571428571
+"212",1991,"France",NA
+"213",1991,"Netherlands",NA
+"214",1991,"No Colonizer",72.4733333333333
+"215",1991,"Other",78.6516666666667
+"216",1991,"Portugal",73.24
+"217",1991,"Russia",NA
+"218",1991,"Spain",96.13
+"219",1991,"Turkey",92.61
+"220",1991,"United States",NA
+"221",1992,"England",94.36
+"222",1992,"France",NA
+"223",1992,"Netherlands",NA
+"224",1992,"No Colonizer",70.82
+"225",1992,"Other",74.14
+"226",1992,"Portugal",NA
+"227",1992,"Russia",NA
+"228",1992,"Spain",88.1833333333333
+"229",1992,"Turkey",96.71
+"230",1992,"United States",NA
+"231",1993,"England",NA
+"232",1993,"France",41.56
+"233",1993,"Netherlands",NA
+"234",1993,"No Colonizer",NA
+"235",1993,"Other",NA
+"236",1993,"Portugal",NA
+"237",1993,"Russia",NA
+"238",1993,"Spain",89.105
+"239",1993,"Turkey",NA
+"240",1993,"United States",NA
+"241",1994,"England",90.6275
+"242",1994,"France",68.7
+"243",1994,"Netherlands",NA
+"244",1994,"No Colonizer",34.3
+"245",1994,"Other",64.21
+"246",1994,"Portugal",NA
+"247",1994,"Russia",NA
+"248",1994,"Spain",NA
+"249",1994,"Turkey",NA
+"250",1994,"United States",93.92
+"251",1995,"England",83.135
+"252",1995,"France",NA
+"253",1995,"Netherlands",NA
+"254",1995,"No Colonizer",NA
+"255",1995,"Other",NA
+"256",1995,"Portugal",NA
+"257",1995,"Russia",98.78
+"258",1995,"Spain",NA
+"259",1995,"Turkey",NA
+"260",1995,"United States",NA
+"261",1996,"England",91.4166666666667
+"262",1996,"France",20.55
+"263",1996,"Netherlands",NA
+"264",1996,"No Colonizer",NA
+"265",1996,"Other",96.78
+"266",1996,"Portugal",NA
+"267",1996,"Russia",NA
+"268",1996,"Spain",91.21
+"269",1996,"Turkey",NA
+"270",1996,"United States",NA
+"271",1997,"England",83.26
+"272",1997,"France",NA
+"273",1997,"Netherlands",NA
+"274",1997,"No Colonizer",NA
+"275",1997,"Other",NA
+"276",1997,"Portugal",38.71
+"277",1997,"Russia",NA
+"278",1997,"Spain",NA
+"279",1997,"Turkey",NA
+"280",1997,"United States",NA
+"281",1998,"England",53.415
+"282",1998,"France",43.19
+"283",1998,"Netherlands",NA
+"284",1998,"No Colonizer",NA
+"285",1998,"Other",98.74
+"286",1998,"Portugal",NA
+"287",1998,"Russia",NA
+"288",1998,"Spain",NA
+"289",1998,"Turkey",NA
+"290",1998,"United States",NA
+"291",1999,"England",74.84
+"292",1999,"France",74
+"293",1999,"Netherlands",NA
+"294",1999,"No Colonizer",NA
+"295",1999,"Other",NA
+"296",1999,"Portugal",NA
+"297",1999,"Russia",99.2966666666667
+"298",1999,"Spain",NA
+"299",1999,"Turkey",NA
+"300",1999,"United States",NA
+"301",2000,"England",79.08375
+"302",2000,"France",52.9316666666667
+"303",2000,"Netherlands",NA
+"304",2000,"No Colonizer",86
+"305",2000,"Other",81.91
+"306",2000,"Portugal",63.865
+"307",2000,"Russia",98.852
+"308",2000,"Spain",89.425
+"309",2000,"Turkey",NA
+"310",2000,"United States",92.6
+"311",2001,"England",85.8275
+"312",2001,"France",14.38
+"313",2001,"Netherlands",NA
+"314",2001,"No Colonizer",48.61
+"315",2001,"Other",78.662
+"316",2001,"Portugal",76.16
+"317",2001,"Russia",99.4933333333333
+"318",2001,"Spain",91.955
+"319",2001,"Turkey",97.6333333333333
+"320",2001,"United States",NA
+"321",2002,"England",76.3766666666667
+"322",2002,"France",69.87
+"323",2002,"Netherlands",NA
+"324",2002,"No Colonizer",NA
+"325",2002,"Other",61.9725
+"326",2002,"Portugal",NA
+"327",2002,"Russia",99.65
+"328",2002,"Spain",92.995
+"329",2002,"Turkey",97.3
+"330",2002,"United States",99.8
+"331",2003,"England",75.2833333333333
+"332",2003,"France",37.48
+"333",2003,"Netherlands",NA
+"334",2003,"No Colonizer",NA
+"335",2003,"Other",97.77
+"336",2003,"Portugal",48.16
+"337",2003,"Russia",NA
+"338",2003,"Spain",NA
+"339",2003,"Turkey",81.36
+"340",2003,"United States",92.59
+"341",2004,"England",81.618
+"342",2004,"France",60.13
+"343",2004,"Netherlands",89.99
+"344",2004,"No Colonizer",71.122
+"345",2004,"Other",99.7
+"346",2004,"Portugal",88.62
+"347",2004,"Russia",NA
+"348",2004,"Spain",90.4733333333333
+"349",2004,"Turkey",74.3
+"350",2004,"United States",NA
+"351",2005,"England",83.332
+"352",2005,"France",28.67
+"353",2005,"Netherlands",NA
+"354",2005,"No Colonizer",77.3275
+"355",2005,"Other",65.405
+"356",2005,"Portugal",NA
+"357",2005,"Russia",NA
+"358",2005,"Spain",90.7966666666667
+"359",2005,"Turkey",93.04
+"360",2005,"United States",NA
+"361",2006,"England",76.114
+"362",2006,"France",51.1025
+"363",2006,"Netherlands",91.98
+"364",2006,"No Colonizer",88.12
+"365",2006,"Other",74.4133333333333
+"366",2006,"Portugal",89.62
+"367",2006,"Russia",NA
+"368",2006,"Spain",92.835
+"369",2006,"Turkey",NA
+"370",2006,"United States",NA
+"371",2007,"England",83.5416666666667
+"372",2007,"France",68.5966666666667
+"373",2007,"Netherlands",NA
+"374",2007,"No Colonizer",67.135
+"375",2007,"Other",81.7466666666667
+"376",2007,"Portugal",90.01
+"377",2007,"Russia",99.6
+"378",2007,"Spain",92.068
+"379",2007,"Turkey",85.56
+"380",2007,"United States",NA
+"381",2008,"England",69.604
+"382",2008,"France",76.365
+"383",2008,"Netherlands",93.405
+"384",2008,"No Colonizer",76.39
+"385",2008,"Other",73.2585714285714
+"386",2008,"Portugal",79.79
+"387",2008,"Russia",NA
+"388",2008,"Spain",93.79
+"389",2008,"Turkey",86.7066666666667
+"390",2008,"United States",95.42
+"391",2009,"England",79.9816666666667
+"392",2009,"France",74.0566666666667
+"393",2009,"Netherlands",92.58
+"394",2009,"No Colonizer",81.5266666666667
+"395",2009,"Other",81.08
+"396",2009,"Portugal",70.44
+"397",2009,"Russia",99.7033333333333
+"398",2009,"Spain",94.855
+"399",2009,"Turkey",93.91
+"400",2009,"United States",NA
+"401",2010,"England",83.4216666666667
+"402",2010,"France",41.1125
+"403",2010,"Netherlands",94.68
+"404",2010,"No Colonizer",95.6133333333333
+"405",2010,"Other",86.437
+"406",2010,"Portugal",90.38
+"407",2010,"Russia",99.775
+"408",2010,"Spain",94.726
+"409",2010,"Turkey",83.035
+"410",2010,"United States",NA
+"411",2011,"England",82.436
+"412",2011,"France",46.985
+"413",2011,"Netherlands",92.81
+"414",2011,"No Colonizer",82.616
+"415",2011,"Other",87.565
+"416",2011,"Portugal",91.41
+"417",2011,"Russia",99.826
+"418",2011,"Spain",95.028
+"419",2011,"Turkey",94.164
+"420",2011,"United States",98.27
+"421",2012,"England",84.31
+"422",2012,"France",54.0133333333333
+"423",2012,"Netherlands",92.87
+"424",2012,"No Colonizer",87.4133333333333
+"425",2012,"Other",80.4255555555556
+"426",2012,"Portugal",90.74
+"427",2012,"Russia",99.63
+"428",2012,"Spain",95.168
+"429",2012,"Turkey",88.735
+"430",2012,"United States",99.75
+"431",2013,"England",70.89
+"432",2013,"France",NA
+"433",2013,"Netherlands",NA
+"434",2013,"No Colonizer",95.3675
+"435",2013,"Other",82.916
+"436",2013,"Portugal",91.48
+"437",2013,"Russia",99.89
+"438",2013,"Spain",96.1025
+"439",2013,"Turkey",NA
+"440",2013,"United States",97.95
+"441",2014,"England",84.59
+"442",2014,"France",64.92
+"443",2014,"Netherlands",95.12
+"444",2014,"No Colonizer",96.765
+"445",2014,"Other",85.6263636363636
+"446",2014,"Portugal",67.78
+"447",2014,"Russia",99.7033333333333
+"448",2014,"Spain",95.2466666666667
+"449",2014,"Turkey",85.51
+"450",2014,"United States",NA
+"451",2015,"England",88.772
+"452",2015,"France",50.8375
+"453",2015,"Netherlands",95.22
+"454",2015,"No Colonizer",95.5366666666667
+"455",2015,"Other",88.17875
+"456",2015,"Portugal",74.045
+"457",2015,"Russia",99.885
+"458",2015,"Spain",95.2771428571429
+"459",2015,"Turkey",93.04
+"460",2015,"United States",97.385
+"461",2016,"England",94.2775
+"462",2016,"France",42
+"463",2016,"Netherlands",95.38
+"464",2016,"No Colonizer",97.21
+"465",2016,"Other",90.5185714285714
+"466",2016,"Portugal",92.81
+"467",2016,"Russia",99.89
+"468",2016,"Spain",95.492
+"469",2016,"Turkey",94.9
+"470",2016,"United States",NA
+"471",2017,"England",88.6933333333333
+"472",2017,"France",53.5
+"473",2017,"Netherlands",NA
+"474",2017,"No Colonizer",72.8875
+"475",2017,"Other",79.6075
+"476",2017,"Portugal",76.87
+"477",2017,"Russia",99.63
+"478",2017,"Spain",95.1733333333333
+"479",2017,"Turkey",95.58
+"480",2017,"United States",NA
+"481",2018,"England",78.2452941176471
+"482",2018,"France",69.6775
+"483",2018,"Netherlands",95.02
+"484",2018,"No Colonizer",87.232
+"485",2018,"Other",84.7281818181818
+"486",2018,"Portugal",93.025
+"487",2018,"Russia",99.76
+"488",2018,"Spain",95.58
+"489",2018,"Turkey",97.5433333333333
+"490",2018,"United States",NA

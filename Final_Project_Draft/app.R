@@ -18,10 +18,12 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                            
                  # First tab, Economy, outputs GDP scatter plot based on checkboxes and line plot based on dropdown selector     
                                 
-                 tabPanel("Economy", mainPanel(h4("GDP per capita in 2018 by Independence Year"), 
+                 tabPanel("Economy", mainPanel(h4("GDP per capita in 2018 by Year of Independence/Formation"), 
                                                plotOutput("plot_gdp"), 
                                                h4("GDP tracker since 1990"), 
-                                               plotOutput("plot_gdp_lines")), 
+                                               plotOutput("plot_gdp_lines"),
+                                               h4("Final Report Card: Comparing the average GDPs over time of countries grouped by Last Occupying Country"),
+                                               plotOutput("mean_gdp")), 
                                       sidebarPanel(checkboxGroupInput("gdp_select",
                                                    "Occupying Countries to show:",
                                                    choices = country_list,
@@ -36,7 +38,9 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  tabPanel("Health", mainPanel(h4("Child Mortality Rate in 2018 by Independence Year"), 
                                                plotOutput("plot_cm"), 
                                                h4("Child Mortality Rate tracker since 1960"), 
-                                               plotOutput("plot_cm_lines")), 
+                                               plotOutput("plot_cm_lines"),
+                                               h4("Final Report Card: Comparing the average Child Mortality Rates over time of countries grouped by Last Occupying Country"),
+                                               plotOutput("mean_cm")),
                           sidebarPanel(checkboxGroupInput("cm_select",
                                                           "Occupying Countries to show:",
                                                           choices = country_list,
@@ -51,7 +55,8 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  tabPanel("Literacy", mainPanel(h4("Literacy Rate in 2018 by Independence Year"), 
                                               plotOutput("plot_lit"), 
                                               h4("Literacy Rate tracker since 1970"), 
-                                              plotOutput("plot_lit_lines")), 
+                                              plotOutput("plot_lit_lines"),
+                                              h6("Unfortunately there is not enough data points to take averages over time by last occupier.")), 
                           sidebarPanel(checkboxGroupInput("lit_select",
                                                           "Occupying Countries to show:",
                                                           choices = country_list,
@@ -66,7 +71,9 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  tabPanel("Human Dev. Index", mainPanel(h4("Human Development Index in 2017 by Independence Year"), 
                                                 plotOutput("plot_hdi"), 
                                                 h4("HDI tracker since 1990"), 
-                                                plotOutput("plot_hdi_lines")), 
+                                                plotOutput("plot_hdi_lines"),
+                                                h4("Final Report Card: Comparing the average HDI index over time of countries grouped by Last Occupying Country"),
+                                                plotOutput("mean_hdi")),
                           sidebarPanel(checkboxGroupInput("hdi_select",
                                                           "Occupying Countries to show:",
                                                           choices = country_list,
@@ -104,6 +111,10 @@ server <- function(input, output) {
   c <- read.csv("cm_line_data.csv")
   l <- read.csv("lit_line_data.csv")
   i <- read.csv("hdi_line_data.csv") 
+  d <- read.csv("mean_gdp.csv")
+  q <- read.csv("mean_cm.csv")
+  r <- read.csv("mean_lit.csv")
+  e <- read.csv("mean_hdi.csv")
   
   # Scatter Plots ----------------------------------------------------------------------------------------------------
   # Creates GDP scatter plot
@@ -204,13 +215,16 @@ server <- function(input, output) {
     # Filters data based on input
     
     h <- g %>% 
-      filter(named_ind_from == input$gdp_select_2) 
+      filter(named_ind_from == input$gdp_select_2)
+    
+    k <- d %>% 
+      filter(named_ind_from == input$gdp_select_2)
     
     # Plots GDP by year, colors by country
     
-    ggplot(h) +
-      aes(x = year, y = gdp, color = name) +
-      geom_line() +
+    ggplot() +
+      geom_line(data = k, aes(x = year, y = mean_gdp), color = "black", size = 1) +
+      geom_line(data = h, aes(x = year, y = gdp, color = name)) +
       scale_y_log10(limits = c(1e+7, 1e+14)) +
       xlim(1990, 2018) +
       theme(legend.position="right") +
@@ -227,13 +241,16 @@ server <- function(input, output) {
     # Filters data according to input
     
     d <- c %>% 
-      filter(named_ind_from == input$cm_select_2) 
+      filter(named_ind_from == input$cm_select_2)
+    
+    o <- q %>% 
+      filter(named_ind_from == input$cm_select_2)
     
     # Plots mortality rate by year, colors by country
     
-    ggplot(d) +
-      aes(x = year, y = cm_rate, color = name) +
-      geom_line() +
+    ggplot() +
+      geom_line(data = d, aes(x = year, y = cm_rate, color = name)) +
+      geom_line(data = o, aes(x = year, y = mean_cm), color = "black", size = 1) +
       ylim(0,400) +
       xlim(1960, 2018) +
       theme(legend.position="right") +
@@ -252,11 +269,14 @@ server <- function(input, output) {
     m <- l %>% 
       filter(named_ind_from == input$lit_select_2) 
     
+    w <- r %>% 
+      filter(named_ind_from == input$lit_select_2) 
+    
     # Plots literacy rate by year, colors by country
     
-    ggplot(m) +
-      aes(x = year, y = lit_rate, color = name) +
-      geom_line() +
+    ggplot() +
+      geom_line(data = m, aes(x = year, y = lit_rate, color = name)) +
+     # geom_line(data = w, aes(x = year, y = mean_lit), color = "black", size = 1) +
       ylim(25,100) +
       xlim(2000, 2018) +
       theme(legend.position="right") +
@@ -275,17 +295,64 @@ server <- function(input, output) {
     j <- i %>% 
       filter(named_ind_from == input$hdi_select_2) 
     
+    n <- e %>% 
+      filter(named_ind_from == input$hdi_select_2) 
+      
     # Plots HDI by year, colors by country
     
-    ggplot(j) +
-      aes(x = year, y = hdi, color = name) +
-      geom_line() +
+    ggplot() +
+      geom_line(data = j, aes(x = year, y = hdi, color = name)) +
+      geom_line(data = n, aes(x = year, y = mean_hdi), color = "black", size = 1) +
       ylim(0,1) +
       xlim(1990, 2017) +
       theme(legend.position="right") +
       labs(color = "Country") +
       xlab("Year") +
       ylab("HDI Index")},
+    height = 400,
+    width = 800)
+  
+  # Mean Line Plots -------------------------------------------------------------------------------------------------
+  
+  output$mean_gdp<-renderPlot({
+  
+    ggplot() +
+      geom_line(data = d, aes(x = year, y = mean_gdp, color = named_ind_from), size = 1) +
+      scale_y_log10(limits = c(1e+9, 1e+13)) +
+      xlim(1990, 2018) +
+      theme(legend.position="right") +
+      labs(color = "Last Occupier") +
+      xlab("Year") +
+      ylab("Average Log of GDP per capita for countries formerly occupied")},
+    height = 400,
+    width = 800)
+  
+  
+  
+  output$mean_cm<-renderPlot({
+    
+    ggplot() +
+      geom_line(data = q, aes(x = year, y = mean_cm, color = named_ind_from), size = 1) +
+      ylim(0,300) +
+      xlim(1960, 2018) +
+      theme(legend.position="right") +
+      labs(color = "Last Occupier") +
+      xlab("Year") +
+      ylab("Average Child Mortality Rate for countries formerly occupied")},
+    height = 400,
+    width = 800)
+  
+  
+  output$mean_hdi<-renderPlot({
+    
+    ggplot() +
+      geom_line(data = e, aes(x = year, y = mean_hdi, color = named_ind_from), size = 1) +
+      ylim(0.25,0.9) +
+      xlim(1990, 2017) +
+      theme(legend.position="right") +
+      labs(color = "Country") +
+      xlab("Year") +
+      ylab("Average HDI Index of countries formerly occupied")},
     height = 400,
     width = 800)
   

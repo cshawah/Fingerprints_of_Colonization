@@ -232,6 +232,35 @@ write.csv(hdi_line_data, "Final_Project_Draft/hdi_line_data.csv")
 
 ```
 
+```{r Data for Mean Line Plots}
+
+# Clean data for Mean Line Plots ------------------------------------------------------------------------------------
+
+# One step further than the line plots from before, this data will find an average of the indicator over time for the group of countries last occupied by a given colonizer/occupier.
+
+mean_gdp <- gdp_line_data %>% 
+  group_by(year, named_ind_from) %>% 
+  summarize(mean_gdp = mean(gdp, na.rm = TRUE))
+
+mean_cm <- cm_line_data %>% 
+  group_by(year, named_ind_from) %>% 
+  summarize(mean_cm = mean(cm_rate, na.rm = TRUE))
+
+mean_lit <- lit_line_data %>% 
+  group_by(year, named_ind_from) %>% 
+  summarize(mean_lit = mean(lit_rate, na.rm = TRUE))
+
+mean_hdi <- hdi_line_data %>% 
+  group_by(year, named_ind_from) %>% 
+  summarize(mean_hdi = mean(hdi, na.rm = TRUE))
+
+write.csv(mean_gdp, "Final_Project_Draft/mean_gdp.csv")
+write.csv(mean_cm, "Final_Project_Draft/mean_cm.csv")
+write.csv(mean_lit, "Final_Project_Draft/mean_lit.csv")
+write.csv(mean_hdi, "Final_Project_Draft/mean_hdi.csv")
+
+```
+
 
 ```{r Plot Drafts, include = FALSE}
 
@@ -260,6 +289,7 @@ ggplot((gdp_line_data %>%
   geom_line()
 
 ```
+
 
 Changes to make for final version:
 
