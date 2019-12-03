@@ -314,6 +314,8 @@ server <- function(input, output) {
   
   # Mean Line Plots -------------------------------------------------------------------------------------------------
   
+  # Mean GDP Line Plot
+  
   output$mean_gdp<-renderPlot({
   
     ggplot() +
@@ -327,7 +329,7 @@ server <- function(input, output) {
     height = 400,
     width = 800)
   
-  
+  # Mean Child Mortality Rate Line Plot
   
   output$mean_cm<-renderPlot({
     
@@ -342,6 +344,7 @@ server <- function(input, output) {
     height = 400,
     width = 800)
   
+  # Mean HDI Line Plot
   
   output$mean_hdi<-renderPlot({
     

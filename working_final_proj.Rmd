@@ -298,6 +298,13 @@ Changes to make for final version:
  - Include tables of data?
  - Make some regression models on scatter plots?
  - Home page with lots of disclaimers explaining issues with data: take last occupying country lightly.
+ 
+ 
+ - Disclaimer Story Page
+ - Color Freezing? Change themes?
+ - Change Graph Titles
+ - Fix link to ICOW
+ - Make a regression somewhere
 
 
 
