@@ -15,9 +15,6 @@ country_list <-  c("England", "France", "Spain", "Netherlands", "Portugal", "Rus
 # Define UI for application, use Navbar
 
 ui <- fluidPage(navbarPage("Fingerprints of Colonization",
-                        
-                 #tabPanel("Story", mainPanel(h3("Has foreign occupation put occupied countries at a disadvantage, and do different occupying powers produce different outcomes?"),
-                 #                             h4("To measure the how FINISH")),
                            
                  # First tab, Economy, outputs GDP scatter plot based on checkboxes and line plot based on dropdown selector     
                                 
