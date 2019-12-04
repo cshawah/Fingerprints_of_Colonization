@@ -15,14 +15,20 @@ country_list <-  c("England", "France", "Spain", "Netherlands", "Portugal", "Rus
 # Define UI for application, use Navbar
 
 ui <- fluidPage(navbarPage("Fingerprints of Colonization",
+                        
+                 #tabPanel("Story", mainPanel(h3("Has foreign occupation put occupied countries at a disadvantage, and do different occupying powers produce different outcomes?"),
+                 #                             h4("To measure the how FINISH")),
                            
                  # First tab, Economy, outputs GDP scatter plot based on checkboxes and line plot based on dropdown selector     
                                 
-                 tabPanel("Economy", mainPanel(h4("GDP per capita in 2018 by Year of Independence/Formation"), 
+                 tabPanel("Economy", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2018:"),
+                                               h4("GDP per capita in 2018 by Year of Independence/Formation"), 
                                                plotOutput("plot_gdp"), 
-                                               h4("GDP tracker since 1990"), 
+                                               h3("Looking at the Effect of Foreign Occupation over Time:"), 
+                                               h4("Tracking GDP of occupied countries since 1990"),
                                                plotOutput("plot_gdp_lines"),
-                                               h4("Final Report Card: Comparing the average GDPs over time of countries grouped by Last Occupying Country"),
+                                               h3("Comparing Occupying Countries:"), 
+                                               h4("Tracking average GDP over time of countries last occupied by different occupiers"),
                                                plotOutput("mean_gdp")), 
                                       sidebarPanel(checkboxGroupInput("gdp_select",
                                                    "Occupying Countries to show:",
@@ -35,11 +41,14 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  # Second tab, Health, outputs mortality scatter plot based on checkboxes and line plot based on dropdown selector   
                  
-                 tabPanel("Health", mainPanel(h4("Child Mortality Rate in 2018 by Independence Year"), 
-                                               plotOutput("plot_cm"), 
-                                               h4("Child Mortality Rate tracker since 1960"), 
+                 tabPanel("Health", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2018:"),
+                                               h4("Child Mortality Rate in 2018 by Year of Independence/Formation"), 
+                                               plotOutput("plot_cm"),
+                                               h3("Looking at the Effect of Foreign Occupation over Time:"),
+                                               h4("Tracking Child Mortality Rate of occupied countries since 1960"), 
                                                plotOutput("plot_cm_lines"),
-                                               h4("Final Report Card: Comparing the average Child Mortality Rates over time of countries grouped by Last Occupying Country"),
+                                               h3("Comparing Occupying Countries:"),
+                                               h4("Tracking average Child Mortality Rate over time of countries last occupied by different occupiers"),
                                                plotOutput("mean_cm")),
                           sidebarPanel(checkboxGroupInput("cm_select",
                                                           "Occupying Countries to show:",
@@ -52,9 +61,11 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  # Third tab, Literacy, outputs literacy rate scatter plot based on checkboxes and line plot based on dropdown selector   
                  
-                 tabPanel("Literacy", mainPanel(h4("Literacy Rate in 2018 by Independence Year"), 
+                 tabPanel("Literacy", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2018:"),
+                                              h4("Literacy Rate in 2018 by Year of Independence/Formation"), 
                                               plotOutput("plot_lit"), 
-                                              h4("Literacy Rate tracker since 1970"), 
+                                              h3("Looking at the Effect of Foreign Occupation over Time:"),
+                                              h4("Tracking Literacy Rate of occupied countries since 1970"), 
                                               plotOutput("plot_lit_lines"),
                                               h6("Unfortunately there is not enough data points to take averages over time by last occupier.")), 
                           sidebarPanel(checkboxGroupInput("lit_select",
@@ -68,12 +79,15 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  # Fourth tab, HDI, outputs HDI scatter plot based on checkboxes and line plot based on dropdown selector   
                  
-                 tabPanel("Human Dev. Index", mainPanel(h4("Human Development Index in 2017 by Independence Year"), 
-                                                plotOutput("plot_hdi"), 
-                                                h4("HDI tracker since 1990"), 
-                                                plotOutput("plot_hdi_lines"),
-                                                h4("Final Report Card: Comparing the average HDI index over time of countries grouped by Last Occupying Country"),
-                                                plotOutput("mean_hdi")),
+                 tabPanel("Human Dev. Index", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2017:"),
+                                                        h4("Human Development Index in 2017 by Year of Independence/Formation"),
+                                                        plotOutput("plot_hdi"), 
+                                                        h3("Looking at the Effect of Foreign Occupation over Time:"),
+                                                        h4("Tracking HDI of occupied countries since 1990"), 
+                                                        plotOutput("plot_hdi_lines"),
+                                                        h3("Comparing Occupying Countries:"),
+                                                        h4("Tracking average HDI over time of countries last occupied by different occupiers"),
+                                                        plotOutput("mean_hdi")),
                           sidebarPanel(checkboxGroupInput("hdi_select",
                                                           "Occupying Countries to show:",
                                                           choices = country_list,
@@ -87,8 +101,8 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  tabPanel("About", 
                           mainPanel(
-                            h4("Project and Sources:"),
-                            p("To look at the colonial history and independence years of world nations, I used the", a("Colonial History Data Set", href = "www.paulhensel.org/icowcol.html"), "from the Issue Correlates of War Project (ICOW) led by Paul R. Hensel at the University of North Texas. This data set contains the year and month that nations gained their independence, as well as the government/nation they gained their independence from."),
+                            h4("Sources:"),
+                            p("To look at the colonial history and independence years of world nations, I used the Colonial History Data Set from the Issue Correlates of War Project (ICOW) led by Paul R. Hensel at the University of North Texas. This data set contains the year and month that nations gained their independence, as well as the government/nation they gained their independence from."),
                             p("To investigate whether/how these colonial histories have impacts today, I chose four indicators of different kinds of the stability or success of a nation."),
                             p("1) Gross Domestic Product, per capita in PPP. I obtained this data from the", a("World Bank", href = "https://data.worldbank.org/indicator/NY.GDP.MKTP.PP.CD"), "."),
                             p("2) Child Mortality Rate, under 5 y/o deaths per 1000 live births. I obtained this data from the", a("World Bank", href = "https://data.worldbank.org/indicator/SH.DYN.MORT)"), "."),
