@@ -67,6 +67,10 @@ colonial_history <- read_csv("raw_data/ICOW_Colonial_History.csv") %>%
   
 colonial_history$ind_date <- substr(colonial_history$ind_date,1,nchar(colonial_history$ind_date)-2) %>% as.numeric()
 
+# Correct for "United States" vs "United States of America"
+
+colonial_history[1,2] <- "United States"
+
 # Add new column that crates factors with names for the last occupying powers based on the country codes
 
 colonial_history <- colonial_history %>% mutate(named_ind_from = ifelse(ind_from == 200, "England", "Other")) %>% 
@@ -289,13 +293,6 @@ ggplot((gdp_line_data %>%
   geom_line()
 
 ```
-
-
-Changes to make for final version:
-
- - Fix the colors of the points for the occupying countries. It is confusing that the colors switch when the check boxes change.
- - I lost some points when merging by country name. There is no ISO3 code in the colonial history dataset, but perhaps I could manually add one and merge using that to eliminate lost points.
- - Home page with lots of disclaimers explaining issues with data: take last occupying country lightly.
 
 
 

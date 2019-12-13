@@ -1,5 +1,5 @@
 "","state","name","col_ruler","ind_from","ind_date","named_ind_from","gdp_val","cm_val","hdi_val","lit_val"
-"1",2,"United States of America",200,200,1783,"England",NA,NA,NA,NA
+"1",2,"United States",200,200,1783,"England",2.04941e+13,6.5,0.924,NA
 "2",20,"Canada",200,200,1867,"England",1782786420987.94,5,0.926,NA
 "3",31,"Bahamas",200,200,1973,"England",NA,NA,0.807,NA
 "4",40,"Cuba",230,2,1902,"United States",NA,5,0.777,NA

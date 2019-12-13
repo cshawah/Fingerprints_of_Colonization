@@ -6,6 +6,7 @@
 
 library(shiny)
 library(tidyverse)
+library(shinythemes)
 
 # Define a list of countries to be used with checkboxes
 
@@ -15,6 +16,14 @@ country_list <-  c("England", "France", "Spain", "Netherlands", "Portugal", "Rus
 # Define UI for application, use Navbar
 
 ui <- fluidPage(navbarPage("Fingerprints of Colonization",
+                           
+                 theme = shinytheme("journal"),
+                           
+                 tabPanel("About", mainPanel(h3("Visualizing the Effect of Colonization"),
+                                             p("Throughout my classes, I kept hearing about the effect of colonization, and I wanted to try and quantify and visualize this effect using data science techniques and R."),
+                                             p("To compare the success/stability of world countries with different colonial histories, I chose 4 categories: economics, health, literacy, and overall quality of life (an aggregate of the previous three). I then found a metric that I could use to measure a country's performance in each of these categories."),
+                                             p("Big Disclaimer!")
+                                             )),
                            
                  # First tab, Economy, outputs GDP scatter plot based on checkboxes and line plot based on dropdown selector     
                                 
@@ -56,9 +65,9 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                                                    choices = country_list,
                                                    selected = "England"))),
                  
-                 # Third tab, Literacy, outputs literacy rate scatter plot based on checkboxes and line plot based on dropdown selector   
+                 # Third tab, Education, outputs literacy rate scatter plot based on checkboxes and line plot based on dropdown selector   
                  
-                 tabPanel("Literacy", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2018:"),
+                 tabPanel("Education", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2018:"),
                                               h4("Literacy Rate in 2018 by Year of Independence/Formation"), 
                                               plotOutput("plot_lit"), 
                                               h3("Looking at the Effect of Foreign Occupation over Time:"),
@@ -76,7 +85,7 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  # Fourth tab, HDI, outputs HDI scatter plot based on checkboxes and line plot based on dropdown selector   
                  
-                 tabPanel("Human Dev. Index", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2017:"),
+                 tabPanel("Quality of Life", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2017:"),
                                                         h4("Human Development Index in 2017 by Year of Independence/Formation"),
                                                         plotOutput("plot_hdi"), 
                                                         h3("Looking at the Effect of Foreign Occupation over Time:"),
@@ -96,17 +105,17 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  # Fifth tab, About, contains text about data sources and author 
                  
-                 tabPanel("About", 
+                 tabPanel("Sources", 
                           mainPanel(
                             h4("Sources:"),
-                            p("To look at the colonial history and independence years of world nations, I used the Colonial History Data Set from the Issue Correlates of War Project (ICOW) led by Paul R. Hensel at the University of North Texas. This data set contains the year and month that nations gained their independence, as well as the government/nation they gained their independence from."),
+                            p("To look at the colonial history and independence years of world nations, I used the", a("Colonial History Data Set", href = "https://www.paulhensel.org/icowcol.html"), "from the Issue Correlates of War Project (ICOW) led by Paul R. Hensel at the University of North Texas. This data set contains the year and month that nations gained their independence, as well as the government/nation they gained their independence from."),
                             p("To investigate whether/how these colonial histories have impacts today, I chose four indicators of different kinds of the stability or success of a nation."),
                             p("1) Gross Domestic Product, per capita in PPP. I obtained this data from the", a("World Bank", href = "https://data.worldbank.org/indicator/NY.GDP.MKTP.PP.CD"), "."),
                             p("2) Child Mortality Rate, under 5 y/o deaths per 1000 live births. I obtained this data from the", a("World Bank", href = "https://data.worldbank.org/indicator/SH.DYN.MORT)"), "."),
                             p("3) Literacy Rate, percentage of people ages 15 and above. I obtained this data from the", a("World Bank", href = "https://data.worldbank.org/indicator/SE.ADT.LITR.ZS?end=2018&start=1999&view=chart"), "."),
                             p("4) Human Development Index (HDI), a metric which incorporates life expectancy, education, and standard of living. This dataset is created and accessed from the", a("United Nations Development Programme", href = "http://hdr.undp.org/en/content/human-development-index-hdi"), "."),
                             h4("About Me:"),
-                            p("My name is Chloe Shawah, and I member of Harvard College's Class of 2022. I am concentrating in Applied Mathematics with an application to Government, and I am pursuing a secondary field in Ethnicity, Migration, and Rights."),
+                            p("My name is Chloe Shawah, and I member of Harvard College's Class of 2022. This is my final project for GOV1005: Data. I am concentrating in Applied Mathematics with an application to Government, and I am pursuing a secondary field in Ethnicity, Migration, and Rights."),
                             p("email: chloeshawah@college.harvard.edu")
                             ))))
 
