@@ -115,7 +115,6 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                             h4("About Me:"),
                             p("My name is Chloe Shawah, and I member of Harvard College's Class of 2022. This is my final project for GOV1005: Data. I am concentrating in Applied Mathematics with an application to Government, and I am pursuing a secondary field in Ethnicity, Migration, and Rights."),
                             p("email: chloeshawah@college.harvard.edu"),
-                            #tags$video(src="Fingerprints_of_Colonization_Video.mov", width="500px", height="350px", type="video/mov", controls="controls"),
                             HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/4e_LaO624B0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                             ))))
 
