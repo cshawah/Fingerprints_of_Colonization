@@ -99,7 +99,7 @@ plot_data <- colonial_history %>%
 
 # Write this clean data into the Shiny App directory
 
-write.csv(plot_data, "Final_Project_Draft/plot_data.csv")
+write.csv(plot_data, "Shiny_App/plot_data.csv")
 
 
 ```
@@ -133,7 +133,7 @@ gdp_line_data <- inner_join(plot_data, gdp_2, by = c("name" = "country_name"))
 
 # Write csv file into app directory
 
-write.csv(gdp_line_data, "Final_Project_Draft/gdp_line_data.csv")
+write.csv(gdp_line_data, "Shiny_App/gdp_line_data.csv")
 
 ```
 
@@ -166,7 +166,7 @@ cm_line_data <- inner_join(plot_data, cm_2, by = c("name" = "country_name"))
 
 # Write csv file into app directory
 
-write.csv(cm_line_data, "Final_Project_Draft/cm_line_data.csv")
+write.csv(cm_line_data, "Shiny_App/cm_line_data.csv")
 
 ```
 
@@ -199,7 +199,7 @@ lit_line_data <- inner_join(plot_data, lit_2, by = c("name" = "country_name"))
 
 # Write csv file into app directory
 
-write.csv(lit_line_data, "Final_Project_Draft/lit_line_data.csv")
+write.csv(lit_line_data, "Shiny_App/lit_line_data.csv")
 
 ```
 
@@ -232,7 +232,7 @@ hdi_line_data <- inner_join(plot_data, hdi_2, by = c("name" = "country_name"))
 
 # Write csv file into app directory
 
-write.csv(hdi_line_data, "Final_Project_Draft/hdi_line_data.csv")
+write.csv(hdi_line_data, "Shiny_App/hdi_line_data.csv")
 
 ```
 
@@ -258,10 +258,10 @@ mean_hdi <- hdi_line_data %>%
   group_by(year, named_ind_from) %>% 
   summarize(mean_hdi = mean(hdi, na.rm = TRUE))
 
-write.csv(mean_gdp, "Final_Project_Draft/mean_gdp.csv")
-write.csv(mean_cm, "Final_Project_Draft/mean_cm.csv")
-write.csv(mean_lit, "Final_Project_Draft/mean_lit.csv")
-write.csv(mean_hdi, "Final_Project_Draft/mean_hdi.csv")
+write.csv(mean_gdp, "Shiny_App/mean_gdp.csv")
+write.csv(mean_cm, "Shiny_App/mean_cm.csv")
+write.csv(mean_lit, "Shiny_App/mean_lit.csv")
+write.csv(mean_hdi, "Shiny_App/mean_hdi.csv")
 
 ```
 
