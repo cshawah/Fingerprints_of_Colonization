@@ -19,14 +19,6 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                            
                  theme = shinytheme("journal"),
                            
-                 tabPanel("About", mainPanel(h3("Visualizing the Effect of Colonization"),
-                                             h5("Before we begin..."),
-                                             p("The project seeks to determine if there are effects of foreign colonization/occupation traceable today by tracking indicators of the economic prosperity, health, and education in world nations over time."),
-                                             p("When viewing this project, it is important to remembers that there are challenges and subjective judgement calls that arise when trying to make something as complicated as colonial history fit into a tidy dataset. Sometimes, it is difficult to determine which foreign power to call the “colonizer” and to mark an exact year when a country became independent. My project defers to all of the judgement calls made in Paul Hensel’s dataset (see Sources tab for more information), but I encourage viewers to keep in mind that many intricacies are eliminated when forcing a very complicated history into a data frame, and to think critically about which countries have been listed under which colonizing powers and whether or not you would make the same categorizations."), 
-                                             p("Further, as I began labeling the visualizations in my project I realized that there were also subjective judgement calls to made with the the terminology. While the title of my project is still investigating the effect of colonization, in my plots, I changed the label “colonizers” to the more general “foreign occupiers,” as it did not seem appropriate in all cases to call the occupying country a “colonizer.”"),
-                                             p("I hope you enjoy looking at my project as much as I enjoyed making it, and that it leaves you with some food for thought about how countries around the world have arrived in their current state.")
-                                             )),
-                           
                  # First tab, Economy, outputs GDP scatter plot based on checkboxes and line plot based on dropdown selector     
                                 
                  tabPanel("Economy", mainPanel(h3("Looking at the Lasting Effect of Foreign Occupation in 2018:"),
@@ -107,8 +99,12 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                  
                  # Fifth tab, About, contains text about data sources and author 
                  
-                 tabPanel("Sources", 
+                 tabPanel("About", 
                           mainPanel(
+                            h4("Disclaimer:"),
+                            p("This project seeks to determine if there are effects of foreign colonization/occupation traceable today by tracking indicators of the economic prosperity, health, and education in world nations over time. When viewing this project, it is important to remember that there are challenges and subjective judgement calls that arise when trying to make something as complicated as colonial history fit into a tidy dataset. Sometimes, it is difficult to determine which foreign power to call the “colonizer” and to mark an exact year when a country became independent. My project defers to all of the judgement calls made in Paul Hensel’s dataset (see Sources for more information), but I encourage viewers to keep in mind that many intricacies are eliminated when forcing a very complicated history into a data frame, and to think critically about which countries have been listed under which colonizing powers and whether or not you would make the same categorizations."), 
+                            p("Further, as I began labeling the visualizations in my project I realized that there were also subjective judgement calls to made with the the terminology. While the title of my project is still investigating the effect of colonization, in my plots, I changed the label “colonizers” to the more general “foreign occupiers,” as it did not seem appropriate in all cases to call the occupying country a “colonizer.”"),
+                            p("I hope you enjoy looking at my project as much as I enjoyed making it, and that it leaves you with some food for thought about how countries around the world have arrived in their current state!"),
                             h4("Sources:"),
                             p("To look at the colonial history and independence years of world nations, I used the", a("Colonial History Data Set", href = "https://www.paulhensel.org/icowcol.html"), "from the Issue Correlates of War Project (ICOW) led by Paul R. Hensel at the University of North Texas. This data set contains the year and month that nations gained their independence, as well as the government/nation they gained their independence from."),
                             p("To investigate whether/how these colonial histories have impacts today, I chose four indicators of different kinds of the stability or success of a nation."),
@@ -118,7 +114,9 @@ ui <- fluidPage(navbarPage("Fingerprints of Colonization",
                             p("4) Human Development Index (HDI), a metric which incorporates life expectancy, education, and standard of living. This dataset is created and accessed from the", a("United Nations Development Programme", href = "http://hdr.undp.org/en/content/human-development-index-hdi"), "."),
                             h4("About Me:"),
                             p("My name is Chloe Shawah, and I member of Harvard College's Class of 2022. This is my final project for GOV1005: Data. I am concentrating in Applied Mathematics with an application to Government, and I am pursuing a secondary field in Ethnicity, Migration, and Rights."),
-                            p("email: chloeshawah@college.harvard.edu")
+                            p("email: chloeshawah@college.harvard.edu"),
+                            #tags$video(src="Fingerprints_of_Colonization_Video.mov", width="500px", height="350px", type="video/mov", controls="controls"),
+                            HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/4e_LaO624B0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                             ))))
 
 # Define server logic
